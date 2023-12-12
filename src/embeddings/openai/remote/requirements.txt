@@ -3,3 +3,4 @@ quart
 async-cache==1.1.1
 requests
 openai
+pandas
