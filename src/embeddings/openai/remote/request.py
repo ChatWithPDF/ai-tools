@@ -1,12 +1,22 @@
 import json
+import pandas as pd
+from typing import Optional
 
 class ModelRequest():
-    def __init__(self, query=None, df = None, query_type =  None):
-         # Url to download csv file
-        self.query = query # String
-        self.query_type =  query_type
+    def __init__(self, query: Optional[str] = None, df: Optional[pd.DataFrame] = None, query_type: Optional[str] = None):
+    
+        self.query = query
+        self.query_type = query_type
         self.df = df
 
-    def to_json(self):
-        return json.dumps(self, default=lambda o: o.__dict__,
-                          sort_keys=True, indent=4)
+        # Additional validation or preprocessing can be added here
+
+    def to_json(self) -> str:
+
+        # Handle DataFrame serialization to JSON if necessary
+        def default_serializer(o):
+            if isinstance(o, pd.DataFrame):
+                return o.to_dict(orient='records')
+            return o.__dict__
+
+        return json.dumps(self, default=default_serializer, sort_keys=True, indent=4)
