@@ -44,10 +44,11 @@ class Model():
                     current_entity = None
 
                 else:
+                    if current_entity:
                     # If it's a subword but not an I- entity
-                    current_entity["word"] += entity["word"][2:]
-                    current_entity["end"] = entity["end"]
-                    current_entity["score"] = float((current_entity["score"] + entity["score"]) / 2)  # averaging scores
+                        current_entity["word"] += entity["word"][2:]
+                        current_entity["end"] = entity["end"]
+                        current_entity["score"] = float((current_entity["score"] + entity["score"]) / 2)  # averaging scores
 
             # Handle full words
             else:
