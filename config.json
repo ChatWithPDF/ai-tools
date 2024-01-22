@@ -1,9 +1,9 @@
 {
   "models": [
    {
-      "serviceName": "flow_classification_test_uplift",
-      "modelBasePath": "src/text_classification/flow_classification/local/.",
-      "apiBasePath": "text_classification/flow_classification_test_uplift/local/",
+      "serviceName": "flow_classification_uplift",
+      "modelBasePath": "src/text_classification/flow_classification_uplift/local/.",
+      "apiBasePath": "text_classification/flow_classification_uplift/local/",
       "containerPort": 8000,
       "environment": {},
       "nginx": [],
